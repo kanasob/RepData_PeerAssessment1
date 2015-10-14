@@ -2,7 +2,7 @@
 title: "Reproducible Research Assessment 1"
 author: "Kanasob"
 date: "14 October 2015"
-output: word_document
+output: html_document
 keep_md: yes
 ---
 
@@ -74,14 +74,17 @@ The mean total number of steps per day is 10766 and the median total number of s
 ```r
 interval<- as.numeric (actdata$interval)
 steps_interval <- aggregate(steps ~ interval, actdata, mean) 
+```
 
+
+```r
 plot (steps_interval$interval, steps_interval$steps, type="l", 
       main = "Average number of steps across all day", 
       xlab = "Interval", 
       ylab = "Average number of steps") 
 ```
 
-![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5-1.png) 
+![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6-1.png) 
 
 ####2. Find the interval with the maximum number of steps
 
@@ -151,7 +154,7 @@ hist(nona_steps_day$steps,
      xlab = "Total number of steps per day")
 ```
 
-![plot of chunk unnamed-chunk-10](figure/unnamed-chunk-10-1.png) 
+![plot of chunk unnamed-chunk-11](figure/unnamed-chunk-11-1.png) 
 
 ####4-2. Show the mean and median of the total number of steps per day
 
@@ -213,7 +216,10 @@ act_nona[,"day"] <- as.factor(act_nona[,"day"])
 
 ```r
 nona_steps_int_days <- aggregate (steps ~interval + day, act_nona, mean)
+```
 
+
+```r
 library (ggplot2)
 ggplot(data = nona_steps_int_days, 
        aes(x= interval, y= steps ))+
@@ -221,4 +227,4 @@ ggplot(data = nona_steps_int_days,
   facet_wrap(~day, ncol = 1)
 ```
 
-![plot of chunk unnamed-chunk-14](figure/unnamed-chunk-14-1.png) 
+![plot of chunk unnamed-chunk-16](figure/unnamed-chunk-16-1.png) 
