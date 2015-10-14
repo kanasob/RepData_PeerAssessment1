@@ -16,19 +16,14 @@ What is mean total number of steps taken per day?
 
     steps_day <- aggregate(steps, list(actdata$date),sum)
     colnames(steps_day) <- c ("date", "steps")
-    head(steps_day,3)
 
-    ##         date steps
-    ## 1 2012-10-02   126
-    ## 2 2012-10-03 11352
-    ## 3 2012-10-04 12116
 
 #### 2. A histogram of the total number of steps per day
 
     hist (steps_day$steps, main = "Histogram of total number of steps per day", 
          xlab = "Total numbers of steps per day") 
 
-![](PA_template_files/figure-markdown_strict/unnamed-chunk-3-1.png)
+![plot of chunk unnamed-chunk-3-1](figure/unnamed-chunk-3-1.png)
 
 #### 3. Show the mean and median of the total number of steps per day
 
